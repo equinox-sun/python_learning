@@ -25,8 +25,6 @@ class LoferLogin(unittest.TestCase):
     	img_name = time.strftime("%y%m%d%H%M%S")
     	# element_span.location_once_scrolled_into_view  Returns the top lefthand corner location on the screen, or None if the element is not visible.
     	# 滑块验证
-    	img_addr = 'D:\\code\\python\\img\\' + img_name +'.png'
-    	driver.save_screenshot(img_addr)
     	element_img = driver.find_element_by_class_name('yidun_bg-img')
     	left = element_img.location_once_scrolled_into_view['x']
     	top = element_img.location_once_scrolled_into_view['y']
@@ -35,6 +33,8 @@ class LoferLogin(unittest.TestCase):
     	bottom = top+110
     	action=ActionChains(driver)
     	action.click_and_hold(element_span).perform()
+    	img_addr = 'D:\\code\\python\\img\\' + img_name +'.png'
+    	driver.save_screenshot(img_addr)
     	i=0
     	while i<22:
     		action.reset_actions()

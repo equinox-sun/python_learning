@@ -106,9 +106,36 @@ print(shoplist)
 print(mylist)
 #如果你想要复制一个列表或者类似的序列或者其他复杂的对象（不是如整数那样的简单对象），那么你必须使用切片操作符来取得拷贝。如果你只是想要使用另一个变量名，两个名称都 参考 同一个对象，那么如果你不小心的话，可能会引来各种麻烦。
 #记住列表的赋值语句不创建拷贝。你得使用切片操作符来建立序列的拷贝。
-"""
+
 
 #join用法， delimiter.join(list)
 delimiter = '_*_'
 mylist = ['Brazil', 'Russia', 'India', 'China']
 print(delimiter.join(mylist))
+
+
+import timeit
+def fun1(x,y):
+    return x**2 +y**3
+t_start = timeit.default_timer()
+z=fun1(109.2,367.1)
+t_end = timeit.default_timer()
+cost =t_end-t_start
+print(cost)
+"""
+
+#ndarray  n维数组
+import numpy as np
+a=np.arange(5)
+
+def isValid(s):
+    stack=[]
+    paren_map={')':'(',']':'[','}':'{'}
+    for c in s:
+        if c not in paren_map:
+            stack.append(c)
+        elif not stack or paren_map!=stack.pop():
+            return False
+        return not stack
+
+print(isValid('[]'))
